@@ -1,16 +1,21 @@
 import Link from "next/link";
-
+import { Separator } from "@/components/ui/separator";
+import { Title, MenuList } from "@/lib/constant";
 function Header() {
     return (
         <div className="h-16 border-b px-10 bg-white">
             <div className="container flex items-center justify-between h-full">
                 <h1 className="text-2xl">
-                    <Link href="/">Zl Store</Link>
+                    <Link href="/">{Title}</Link>
                 </h1>
                 <div className="flex justify-end space-x-4 text-sm">
-                    <Link href="/search">Search</Link>
-                    <Link href="/account">Account</Link>
-                    <Link href="/cart">Cart</Link>
+                    {MenuList.map((item, index) => <>
+                        <Link key={item.href} href={item.href}>
+                            {item.text}
+                        </Link>
+                        {index !== MenuList.length - 1 ? <Separator orientation="vertical" /> : null}
+                    </>
+                    )}
                 </div>
             </div>
         </div>
