@@ -4,6 +4,7 @@ import './globals.css'
 import { Geist } from "next/font/google";
 import { cn } from "@/lib/utils";
 import Footer from "@/components/Footer";
+import { Toaster } from "sonner";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body>
         <Header />
         {children}
+        <Toaster position="top-center" />
         <Footer />
       </body>
     </html>
